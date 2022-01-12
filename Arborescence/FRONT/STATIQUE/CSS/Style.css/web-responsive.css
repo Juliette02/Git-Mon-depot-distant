@@ -1,11 +1,11 @@
 
 .menu {
-    color: #ffffff;
     background-color: #23241f;
-    border: 0.125rem;
+    border: 0.125em;
     padding: 1em 1em 1em 1em;
     font-size: 100%;
     line-height: 1.50;
+    width: auto;
 }
 .white{
     color:#ffffff
@@ -15,11 +15,11 @@
 }
 .logo p{
     height:50;
-    margin-left: 8.125rem;
+    margin-left: 8.125em;
 }
 
 #T1{
-    font-size: 1.875rem;
+    font-size: 1.875em;
     text-align: center;
 
 }
@@ -34,7 +34,7 @@
     min-width:100px;
 }
 .center{
-    display: block;
+    display: flex;
     margin-left: auto;
     margin-right: auto;
     max-width: 100%;
@@ -42,14 +42,19 @@
 }
 
 
+
 /*Css web responsive*/
 
 @media screen and (max-width:768px) {
     .menu {
-        background-position-x: auto;
+        position:relative;
     }
     .white {
-        display:block;
+        display: flex;
+        flex-direction: column;
+    }
+    table{
+        size: auto;
     }
 }
 @media screen and (min-width:769px) {
