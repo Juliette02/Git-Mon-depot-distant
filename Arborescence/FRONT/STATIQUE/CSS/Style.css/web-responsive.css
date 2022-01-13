@@ -4,8 +4,6 @@
     border: 0.125em;
     padding: 1em 1em 1em 1em;
     font-size: 100%;
-    line-height: 1.50;
-    width: auto;
 }
 .white{
     color:#ffffff
@@ -16,19 +14,16 @@
 .logo p{
     height:50;
     margin-left: 8.125em;
-}
-
-#T1{
     font-size: 1.875em;
-    text-align: center;
-
+    text-align: flex;
+    justify-content:center;
+    align-items: center;
 }
 #D3{
     display:flex;
     align-items: stretch;
     justify-content: space-between;
 }
-
 .imag{
     width:10%;
     min-width:100px;
@@ -37,6 +32,7 @@
     display: flex;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 0.5%;
     max-width: 100%;
     height: auto;
 }
