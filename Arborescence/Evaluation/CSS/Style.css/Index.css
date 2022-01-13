@@ -18,10 +18,18 @@
     justify-content: center;
     align-items: center;
 }
+.center{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0.5%;
+    width: 100%;
+    height: auto;
+}
 #D3{
     display:flex;
     align-items: stretch;
-    justify-content: space-between;
+    justify-content: space-between  ;
 }
 #D1{
     float:right;
@@ -33,11 +41,4 @@
     width:10%;
     min-width:100px;
 }
-.center{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 0.5%;
-    width: 100%;
-    height: auto;
-}
+
