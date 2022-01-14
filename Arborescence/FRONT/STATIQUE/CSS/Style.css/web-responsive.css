@@ -13,9 +13,8 @@
 }
 .logo p{
     height:50;
-    margin-left: 8.125em;
     font-size: 1.875em;
-    text-align: flex;
+    display: flex;
     justify-content:center;
     align-items: center;
 }
