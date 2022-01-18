@@ -1,4 +1,4 @@
-
+/*...Générale...*/
 .menu {
     background-color: #23241f;
     border: 0.125em;
@@ -8,33 +8,46 @@
 .white{
     color:#ffffff
 }
+
+/*...Healer...*/
 .logo img{
     float: left;
 }
 .logo p{
     height:50;
-    margin-left: 8.125em;
     font-size: 1.875em;
-    text-align: flex;
+    display: flex;
     justify-content:center;
     align-items: center;
 }
-#D3{
-    display:flex;
-    align-items: stretch;
-    justify-content: space-between;
-}
-.imag{
-    width:10%;
-    min-width:100px;
-}
+
+/*...Photo Promo...*/
 .center{
     display: flex;
     margin-left: auto;
     margin-right: auto;
     margin-top: 0.5%;
-    max-width: 100%;
+    width: 100%;
     height: auto;
+}
+
+/*...Corp...*/
+#D3{
+    display:flex;
+    align-items: stretch;
+    justify-content: space-between;
+}
+#D1{
+    float:right;
+    background-color: #d4d0d0;
+    order:1;
+    width: 21.875rem;
+}
+
+/*...Tableau...*/
+.imag{
+    width:10%;
+    min-width:100px;
 }
 
 
@@ -42,6 +55,7 @@
 /*Css web responsive*/
 
 @media screen and (max-width:768px) {
+    /*...Générale...*/
     .menu {
         position:relative;
     }
@@ -49,15 +63,26 @@
         display: flex;
         flex-direction: column;
     }
+    h1{
+        font-size: 100%;
+    }
+
+    /*...Healer...*/
+    .logo img{
+        width: 40%;
+    }
+    .logo p{
+        height: auto;
+        font-size: 187.5%;
+    }
+
+    /*...Corp...*/
+    #D1{
+        display: none;
+    }
+
+    /*...Tableau...*/
     table{
         size: auto;
-    }
-}
-@media screen and (min-width:769px) {
-    #D1{
-        float:right;
-        background-color: #d4d0d0;
-        order:1;
-        width: 21.875rem;
     }
 }
