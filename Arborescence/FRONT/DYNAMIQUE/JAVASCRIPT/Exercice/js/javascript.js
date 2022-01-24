@@ -56,3 +56,5 @@ function clickbtn4(){
         alert("Vérifiez en Console (F12), ce que vous venez de saisir...");
     }
 }
+
+//***********************************************/
