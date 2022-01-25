@@ -129,40 +129,118 @@ var bouton4_1= document.getElementById("Id_4_1");
 bouton4_1.addEventListener("click",clickbtn4_1)
 
 function clickbtn4_1() {
+/***************
+ * var tableau = [prompt("Ecrire un prénom : ")]; 
+for(var i in tableau){
+    console.log(tableau[i]); *************Mauvaise réponse******************
+    console.log(i)
+    **************************/
 
-var prenom = prompt("Ecrire un prénom : ");
-while(prenom = true){
-    prompt("Ecrire un prénom : ");
+    var prenom = prompt("Ecrire un prénom : ");
+    var n = 0
+    var message_final=""
+
+    while(prenom !=""){
+        //alert("prenom pas vide ! : "+prenom);
+        prenom=prompt("Ecrire un prénom : ");
+        n = n+1;
+    message_final = message_final + prenom + "\n";
+    }
+    if(prenom ==""){
+        alert(message_final + n);
+    }
+
 }
-}
+
             //Exercice 2//
 var bouton4_2= document.getElementById("Id_4_2");
 bouton4_2.addEventListener("click",clickbtn4_2)
 
 function clickbtn4_2() {
 
-var N = prompt("Ecrtire un chiffre : ");
-i = N-1
-while(N>0){
-    alert("Voici les nombre inférieurs à "+N+" sont : "+ i);
-    i--;
-    if(i<0){
-        break;
+    var N = prompt("Ecrtire un chiffre : ");
+    i = N 
+    message_final =""
+
+    while(N>0){
+        //alert("Voici les nombre inférieurs à "+N+" sont : "+ i);
+        if(i<1){
+            break;
+        }i--;
+        message_final = message_final + i+",";
+        
     }
-}
-}
+    alert("Les chiffres inférieur à " +N+ " sont : " + message_final);
+    }
             //Exercice 3//
 var bouton4_3= document.getElementById("Id_4_3");
 bouton4_3.addEventListener("click",clickbtn4_3);
 
 function clickbtn4_3(){
 
-var num = prompt("Ecrire un chiffre entier : ");
-while(num==0){
-    prompt("Ecrire un chiffre entier : ")
-    if(num=0){
-        break;
+    var a = prompt("Ecrire un chiffre entier : ");
+    
+    var somme = 0;
+    var moyenne = 0;
+
+    while(a!=0){
+        a = prompt("Ecrire un chiffre entier : ");
+        var n = parseInt(n);
+        n = n + a;
+}
+        somme = n;
+        alert(somme);
+        moyenne = somme ;
     }
+
+            //Exercice 4//
+var bouton4_4= document.getElementById("Id_4_4");
+bouton4_4.addEventListener("click",clickbtn4_4);
+
+function clickbtn4_4(){
+
+    var n = prompt("Ecrire un chiffre : ");//Nombre de multilication//
+    var x = prompt("Donner un autres chiffre : ");//Nombre à multiplier//
+    var limite=parseInt(n)+1;
+    var message_final="";
+
+    for(i=1; i<limite; i++){
+            resultat = i * x;
+            //Rappel : le \n permet de passer à la ligne en Javasript !!!!
+            
+            message_final = message_final + (i+" * "+x+" = "+resultat+"\n"); 
+    }
+    alert (message_final);
+    /*do
+    {*********************************************************************
+        resultat = n * i;
+        n++;                            Mauvais résultat !
+        alert(n+" * "+i+" = "+resultat);
+        ******************************************************************
+    }while(i=x);*/
 }
 
+            //Exercice 5//
+var bouton5= document.getElementById("Id_5");
+bouton5.addEventListener("click",clickbtn5);
+
+function clickbtn5(){
+var a = prompt("Entrez un mots : ");
+var nb_voyelle = 0;
+
+/*var longeur_mots = a.length;
+for (i=0; i<a.length;i++){
+    nb_voyelle = a.substring(i);
+    if (nb_voyelle=="a" || nb_voyelle=="e" || nb_voyelle=="i" || nb_voyelle=="o" || nb_voyelle==="u"){
+        alert(nb_voyelle)
+    }
+}*/
+var a = a.substring(nb_voyelle,i)
+for(i = 0; i<= a.length -1; i++){
+    if(a.indexOf(i)=="a" || a.indexOf(i)=="e" || a.indexOf(i)=="i" || a.indexOf(i)=="o" || a.indexOf(i)=="u"){
+        nb_voyelle += 1;
+    }
 }
+alert(nb_voyelle)
+}
+//......................................................................//
