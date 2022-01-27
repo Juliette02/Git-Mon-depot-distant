@@ -143,11 +143,11 @@ for(var i in tableau){
     while(prenom !=""){
         //alert("prenom pas vide ! : "+prenom);
         prenom=prompt("Ecrire un prénom : ");
-        n = n+1;
+        n++;
     message_final = message_final + prenom + "\n";
     }
     if(prenom ==""){
-        alert(message_final + n);
+        alert(message_final + n-1);
     }
 
 }
@@ -179,18 +179,17 @@ bouton4_3.addEventListener("click",clickbtn4_3);
 function clickbtn4_3(){
 
     var a = prompt("Ecrire un chiffre entier : ");
-    
     var somme = 0;
-    var moyenne = 0;
+    var n = 0;
 
-    while(a!=0){
+    while(a!="0"){
         a = prompt("Ecrire un chiffre entier : ");
-        var n = parseInt(n);
-        n = n + a;
+        var somme = somme + parseFloat(a);
+        var n = n+1;
 }
-        somme = n;
-        alert(somme);
-        moyenne = somme ;
+        var moyenne = somme/n;
+        alert("La somme des nombres est de ; "+somme+"\n"+
+            "La moyenne est de : "+moyenne);
     }
 
             //Exercice 4//
@@ -226,21 +225,30 @@ bouton5.addEventListener("click",clickbtn5);
 
 function clickbtn5(){
 var a = prompt("Entrez un mots : ");
+var voyelles = "a" || "e" || "i" || "o" || "u";
 var nb_voyelle = 0;
 
-/*var longeur_mots = a.length;
-for (i=0; i<a.length;i++){
-    nb_voyelle = a.substring(i);
-    if (nb_voyelle=="a" || nb_voyelle=="e" || nb_voyelle=="i" || nb_voyelle=="o" || nb_voyelle==="u"){
-        alert(nb_voyelle)
+console.log(a.substring());
+console.log(a.length);
+console.log(a.indexOf())
+
+for  (i=0; i<a.length; i++) {
+    
+    if(a.substring()==voyelles){
+    nb_voyelle++;
+    }
+}
+
+/*for (i=0; i<a.length; i++){
+        c = a.indexOf(i);
+    if (c=="a" || c=="e" || c=="i" || c=="o" || c=="u"){
+        nb_voyelle++;
     }
 }*/
-var a = a.substring(nb_voyelle,i)
-for(i = 0; i<= a.length -1; i++){
-    if(a.indexOf(i)=="a" || a.indexOf(i)=="e" || a.indexOf(i)=="i" || a.indexOf(i)=="o" || a.indexOf(i)=="u"){
-        nb_voyelle += 1;
-    }
+alert(`La chaine ${a} posssède ${nb_voyelle} voyelles`);
+
 }
-alert(nb_voyelle)
-}
+//................................Exercice sur les fonction...........................//
+
+
 //......................................................................//
