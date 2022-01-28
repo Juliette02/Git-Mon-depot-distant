@@ -228,15 +228,9 @@ var a = prompt("Entrez un mots : ");
 var voyelles = "a" || "e" || "i" || "o" || "u";
 var nb_voyelle = 0;
 
-console.log(a.substring());
-console.log(a.length);
-console.log(a.indexOf())
-
-for  (i=0; i<a.length; i++) {
-    
-    if(a.substring()==voyelles){
-    nb_voyelle++;
-    }
+var result = a.indexOf(voyelles);
+if (result>-1){
+    console.log(result)
 }
 
 /*for (i=0; i<a.length; i++){
