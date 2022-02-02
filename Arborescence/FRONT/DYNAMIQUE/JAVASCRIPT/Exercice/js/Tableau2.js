@@ -47,8 +47,26 @@ function RechercheTab(){
 RechercheTab();
 
 function InfoTab(){
-    alert("Dans la fonction InfoTab");
-    var max = tableau.max();
-    alert("La valeur maximale est de " + max );
+    //alert("Dans la fonction InfoTab");
+    var max = 0;//Maximun du tabeau 
+        for(i=0;i<tableau.length; i++){
+            if (tableau[i]>max){
+                max = tableau[i];
+            }
+    }
+    console.log(max);
+    
+    var moyN = 0;//Moyenne du tableau
+    var n = tableau.length;
+    var s = 0;
+    for(i=0; i<n; i++){
+        s += tableau[i];
+    }
+    var moyN = s / n;
+    console.log(moyN);
+
+    alert("La valeur maximale est de " + max + "\n" +
+    "La moyenne du tableau est de " + moyN );
 }
 InfoTab();
+
