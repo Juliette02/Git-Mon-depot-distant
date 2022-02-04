@@ -79,41 +79,57 @@ alert("Tableau non trié : " + tableau);
 
 //...............................Tri tableau...............................//
 
-/*function Tri(a, b){
-    var a = a.toLowerCase();
-    var b = b.toLowerCase();
-    if (a<b){
-        return(-1);
-        }
-    if (a>b){
-        return(1);
-        }
-    if (a===b){
-        return(0);
-        }
-    }
-}*/
+tableau.sort((a, b) => {
+    return a - b;
+})
 
-function Tri (){
+console.log(tableau);
+//.......................................................................................//
 
-alert("Dans la function");
+/*function Tri(tableau){
 
-    for (i=0; i<tableau.length -1; i++){
-        for (j=0; j<tableau.length - 1 - i; j++){
-            if (tableau[i]> tableau[j+1]){
-                console.log (tableau[j]);
+    for (i=0; i<n; i++){
+        alert("1er boucle");
+        for (j=0; j<n; j++){
+            alert("2eme boucle");
+            if (tableau[j] > tableau[j+1]){
+                alert("TRI");
+                    console.log ("ancienne valeur " + tableau[j]);
                 [tableau[j], tableau[j+1]] = [tableau[j+1], tableau[j]];
-                console.log(tableau[j]);
+                    console.log("nouvelle valeur " + tableau[j]);
             }
         }
     }
-    return(tableau);
+    
 }
 
-console.log(Tri());
+Tri(tableau);
 
-alert("Tableau trié : " + Tri());
+console.log(Tri(tableau));
 
+alert("Tableau trié : " + Tri(tableau));
+*/
+//.........................................................................................//
+/*
+function sort(tableau){
+    var changed;
+    do{
+        changed = false;
+        console.log("1er boucle");
+        for(i=0; i < n-1; i++) {
+            console.log("2e boucle");
+            if(tableau[i] > tableau[i+1]) {
+                console.log("3e boucle");
+                var tmp = tableau[i];
+                tableau[i] = tableau[i+1];
+                tableau[i+1] = tmp;
+                changed = true;
+            }
+        }
+    } while(changed);
 }
-
-
+console.log("sortie de boucle");
+sort(tableau);
+console.log(tableau);
+*/
+}
