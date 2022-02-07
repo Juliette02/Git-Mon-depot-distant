@@ -5,27 +5,20 @@ bouton1.addEventListener("click",clickbtn1);
 function clickbtn1() {
 
 
+    var tableau = Array(n);//n == taille du tableau 
 var n =parseInt(prompt("Quel sera la taille du tableau : "));
-
-var tableau =[]; 
-
-//Valeur à rentrer dans le tableau
-
-nb_valeur = 0;
+var nb_valeur = 0;
 
 while(nb_valeur <n){
 
-    var valeur = prompt("Entrez les valeurs du tableau : ");
+    var valeur = parseInt(prompt("Entrez les valeurs du tableau : "));
+    tableau[nb_valeur]=valeur;
     nb_valeur++;
-    if (valeur != ""){
-        tableau.push(valeur);//Ajoute les valeurs au tableau 
-    } else { break; }
-
+    
 }
-
 console.log(tableau);
 
-alert(tableau);
+alert("Tableau non trié : " + tableau);
 
 }
 //........................Exercice 2..................Méthode 2.........................................//
@@ -68,7 +61,7 @@ var nb_valeur = 0;
 
 while(nb_valeur <n){
 
-    var valeur = prompt("Entrez les valeurs du tableau : ");
+    var valeur = parseInt(prompt("Entrez les valeurs du tableau : "));
     tableau[nb_valeur]=valeur;
     nb_valeur++;
     
@@ -79,11 +72,11 @@ alert("Tableau non trié : " + tableau);
 
 //...............................Tri tableau...............................//
 
-tableau.sort((a, b) => {
+/*tableau.sort((a, b) => {
     return a - b;
 })
 
-console.log(tableau);
+console.log(tableau);*/
 //.......................................................................................//
 
 /*function Tri(tableau){
@@ -110,26 +103,24 @@ console.log(Tri(tableau));
 alert("Tableau trié : " + Tri(tableau));
 */
 //.........................................................................................//
-/*
+
 function sort(tableau){
-    var changed;
-    do{
-        changed = false;
-        console.log("1er boucle");
-        for(i=0; i < n-1; i++) {
-            console.log("2e boucle");
-            if(tableau[i] > tableau[i+1]) {
-                console.log("3e boucle");
-                var tmp = tableau[i];
-                tableau[i] = tableau[i+1];
-                tableau[i+1] = tmp;
-                changed = true;
+    for (i=0; i<tableau.length; i++){
+        T = false;
+            for (j=0; j<tableau.length; j++){
+                if (tableau[j] > tableau[j+1]){
+                    T = true;
+                    tmp = tableau[j];
+                    tableau[j] = tableau[j+1];
+                    tableau[j+1] = tmp
+                }
             }
-        }
-    } while(changed);
+        if(T!==true) break;
+    }
+    return tableau;
 }
-console.log("sortie de boucle");
+
 sort(tableau);
 console.log(tableau);
-*/
+alert(tableau);
 }
