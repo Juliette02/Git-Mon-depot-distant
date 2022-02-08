@@ -225,21 +225,38 @@ bouton5.addEventListener("click",clickbtn5);
 
 function clickbtn5(){
 var a = prompt("Entrez un mots : ");
-var voyelles = "a" || "e" || "i" || "o" || "u";
-var nb_voyelle = 0;
+var voyelles = ["a", "e", "i", "o", "u", "y"];
 
-var result = a.indexOf(voyelles);
-if (result>-1){
-    console.log(result)
-}
 
+//function nbV(){
+    var nb_voyelle = 0;
+        for (let i of a.toLowerCase()){
+            if(voyelles.includes(i)){
+                nb_voyelle++;
+            }
+        }//return nb_voyelle;
+//}
+//var result = nbV(a);
+//console.log(result);
+
+alert(`La chaine ${a} posssède ${nb_voyelle} voyelles`);
 /*for (i=0; i<a.length; i++){
-        c = a.indexOf(i);
-    if (c=="a" || c=="e" || c=="i" || c=="o" || c=="u"){
-        nb_voyelle++;
+    console.log(a.length);
+    if(voyelles.indexOf(a[i]) != -1){
+        nb_voyelle += 1;
     }
 }*/
-alert(`La chaine ${a} posssède ${nb_voyelle} voyelles`);
+
+/*for (i in a.substring(0,a.length)){
+    console.log(a);
+    var result = a.indexOf(voyelles);
+    if (result > -1 ){
+        nb_voyelle++;
+    console.log(nb_voyelle);
+}
+}*/
+
+//alert(`La chaine ${a} posssède ${nb_voyelle} voyelles`);
 
 }
 //................................Exercice sur les fonction...........................//
