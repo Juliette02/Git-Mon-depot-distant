@@ -11,9 +11,9 @@ function strtok(str1, str2, n){
 var str2 = b;
 var n = c;*/
 
-alert("str1"+str1);
-alert("str2"+str2);
-alert("n"+n);
+//alert("str1"+str1);
+//alert("str2"+str2);
+//alert("n"+n);
 
 var phrase = str1.split(" ").join(str2);
 console.log(phrase);
