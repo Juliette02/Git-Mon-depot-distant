@@ -17,20 +17,26 @@ document.getElementById("inscription").addEventListener("submit", function(e){
 
         //1er fieldset
 
-    if (!n.test(nom.value)){
+    
+
+    if (nom.value==""){
         E1 = "Veuillez entrez votre Nom, s'il-vous-plait!";
+    } else if (!n.test(nom.value)){
+        E1 = "Veuillez renseignez corretement votre Nom, s'il-vous-plait!";
     } else {
         E1 = "";
     }
     document.getElementById("E1").innerHTML = E1;//...........Version simplifier...........//
 
-    if (!n.test(prenom.value)){
+    if (prenom.value==""){
         E2 = "Veuillez entrez votre Prénom, s'il-vous-plait!";
-        E2 = document.getElementById("E2").innerHTML = E2;
+    } else if (!n.test(prenom.value)) {
+        E2 = "Veuillez renseignez corretement votre Prénom, s'il-vous-plait!";
     } else {
-        E2 = document.getElementById("E2").innerHTML = "";
-
+        E2 = "";
     }
+    document.getElementById("E2").innerHTML = E2;//...........Version simplifier...........//
+
 
     //Pour les bouton radio//
 
@@ -99,6 +105,7 @@ document.getElementById("inscription").addEventListener("submit", function(e){
     }
 
     if (E1+E2+E3+E4+E5+E6+E7+E8+E9 != "") { 
+        e.preventDefault();
         envoie = document.getElementById("envoie").innerHTML = "";
     } else {
         envoie = "Formulaire Envoyé !";
