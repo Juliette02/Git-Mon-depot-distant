@@ -26,11 +26,11 @@ document.getElementById("inscription").addEventListener("submit", function(e){
 
     if (!n.test(prenom.value)){
         E2 = "Veuillez entrez votre Prénom, s'il-vous-plait!";
-        E2 = document.getElementById("E2").innerHTML = E2;
     } else {
-        E2 = document.getElementById("E2").innerHTML = "";
-
+        E2 = "";
     }
+    document.getElementById("E2").innerHTML = E2;//...........Version simplifier...........//
+
 
     //Pour les bouton radio//
 
