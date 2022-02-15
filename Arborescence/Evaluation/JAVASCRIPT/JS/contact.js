@@ -1,5 +1,5 @@
 document.getElementById("inscription").addEventListener("submit", function(e){
-    e.preventDefault();
+    // e.preventDefault();
         // 1er fieldset
 
     var envoie ="";
