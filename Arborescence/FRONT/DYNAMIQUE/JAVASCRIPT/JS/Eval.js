@@ -92,7 +92,7 @@ function clcikbtn4() {
 
     if (TOT < 100) {
         console.log("1er IF");
-        REM = 0;
+        REM = TOT + 0;
         PORT = TOT * (2/100);
         console.log("PORT =" + PORT);
         if (PORT < 6) {
@@ -101,23 +101,31 @@ function clcikbtn4() {
         console.log("PORT apres if = " + PORT);
         TOT = TOT + PORT;
         console.log("TOT * REM + PORT = " + TOT);
+        alert(" Le prix après remise et de " + REM + "€"
+            + "\n Le prix après frais de port est de " + PORT + "€"
+            + "\n Le prix total à payer est de " + TOT + "€");
     }
     else if ((100 <= TOT <= 200) && (TOT < 500)) {
         console.log("2e IF");
         REM = (1 - (5/100));
+        REM = TOT * REM;
+        // console.log(REM);
         PORT = TOT * (2/100);
         console.log("PORT =" + PORT);
         if (PORT < 6) {
             PORT = 6;
         }
         console.log("PORT apres if = " + PORT);
-        TOT = TOT * REM + PORT;
+        TOT = REM + PORT;
         console.log("TOT * REM + PORT = " + TOT);
+        alert(" Le prix après remise est de " + REM+"€"
+            +"\n Le prix après frais de port est de " + PORT+"€"   
+            +"\n Le  prix total à payer est de " + TOT+"€");
     } else if ((100 <= TOT <=200) || (TOT > 500)) {
         console.log("3e IF");
         REM = (1 - (10/100));
         TOT = TOT * REM;
-        console.log("TOT apres REM = " + TOT)
+        // alert("TOT apres REM = " + TOT)
         if ((TOT < 500)) {
             PORT = TOT * (2/100);
             console.log("PORT =" + PORT);
@@ -126,12 +134,13 @@ function clcikbtn4() {
             }
             console.log("PORT apres if = " + PORT);
             TOT = TOT + PORT;
-            console.log("TOT * REM + PORT = " + TOT)
+            alert("Le prix du produit " + PU+"€" +" * la remise de "+ REM+"%" + " + les frais de port de " +  PORT+"€" + " = " + TOT+"€");
         } else if (TOT > 500) {
         console.log("TOT apres PORT = " + TOT);
         PORT = 0;
         TOT = TOT + PORT;
         console.log("TOT * REM + PORT = " + TOT);
+        alert("Le prix du produit " + PU+"€" +" * la remise de "+ REM+"%" + " + les frais de port de " +  PORT+"€" + " = " + TOT+"€");
         }
     }
 
