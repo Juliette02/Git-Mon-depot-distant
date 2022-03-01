@@ -20,7 +20,7 @@
     JOIN suppliers ON products.SupplierID = suppliers.SupplierID
     WHERE suppliers.Country = 'France'
     GROUP BY CompanyName
-    ORDER BY count(ProductName) DESC;
+    ORDER BY count(ProductName) DESC, CompanyName ASC;
 
 /*          4. Liste des clients français ayant passé plus de 10 commandes.             */
 
@@ -33,12 +33,23 @@
 
 /*          5. Liste des clients dont le montant cumulé de toutes les commandes passées est supérieur à 10000€.                 */
 
-    SELECT DISTINCT ShipName AS 'Client', SUM(UnitPrice * Quantity) AS 'CA', ShipCountry AS 'Pays'
+    SELECT ShipName AS 'Client', SUM(UnitPrice * Quantity) AS 'CA', ShipCountry AS 'Pays'
     from orders
     JOIN ordetails ON orders.OrderID = ordetails.OrderID
     GROUP BY ShipName
-    HAVING SUM(UnitPrice * Quantity) > 30000
+    HAVING SUM(UnitPrice * Quantity) > 10000
     ORDER BY SUM(UnitPrice * Quantity) DESC;
+
+/***                                     Si je veux avoir exactement la même chose que dans l'exemple de l'exercice : 
+
+                SELECT ShipName AS 'Client', SUM(UnitPrice * Quantity) AS 'CA', ShipCountry AS 'Pays'
+                from orders
+                JOIN ordetails ON orders.OrderID = ordetails.OrderID
+                GROUP BY ShipName
+                HAVING SUM(UnitPrice * Quantity) > 30000
+                ORDER BY SUM(UnitPrice * Quantity) DESC;
+            
+                                        il faudrait que je note "SUM(UnitPrice*Quantity) > 30000" pour avoir que les 10 premiers résultats.                                          ****/
 
 /*          6. Liste des pays dans lesquels des produits fournis par "Exotic Liquids" ont été livrés.               */
 
@@ -75,7 +86,7 @@
 
 /*          10. Quel est le délai moyen de livraison en jours ?                 */
 
-    SELECT round(AVG(DATEDIFF( ShippedDate, OrderDate))) AS 'Délai moyen de livraison en jours'
+    SELECT ROUND(AVG(DATEDIFF( ShippedDate, OrderDate))) AS 'Délai moyen de livraison en jours'
     FROM orders;
 
 /***************************************************************************************************************************/
