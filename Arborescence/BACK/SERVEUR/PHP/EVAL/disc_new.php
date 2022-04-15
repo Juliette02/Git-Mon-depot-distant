@@ -17,7 +17,7 @@ $requete1->closeCursor();
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -58,7 +58,7 @@ $requete1->closeCursor();
 
 
         <label class="text-white" for="Picture">Picture</label><br>
-            <input type="file" name="Picture" id="Picture">
+            <input class="text-white" type="file" name="Picture" id="Picture">
                 <p class="erreur" id="E7" style="color : red"></p>
     </div>
     <br>

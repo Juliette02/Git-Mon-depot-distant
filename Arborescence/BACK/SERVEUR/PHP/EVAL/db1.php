@@ -1,5 +1,5 @@
 <?php
-function ConnexionBase() {
+function ConnexionBase1() {
 
     try 
     {

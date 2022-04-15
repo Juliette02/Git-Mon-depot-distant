@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
     $E_Img = '<p style="color : red">Please, upload an image !</p>';
 
     $Picture = $_FILES['Picture']['name']; /// recupére où il trouve l'image
-    //echo $_FILES['Picture']['tmp_name'];
+    echo $_FILES['Picture']['tmp_name'];
     if (isset($_FILES['Picture']['name']) === false) // isset() --> Détermine si une variable est déclarée et est différente de null
     {
         $retour = copy($_FILES['Picture']['tmp_name'], "./img/".$_FILES['Picture']['name']);// copi du chemin images dans dossier image. ATTENTION!! ['tmp_name'] designe le chemin initiale de l'image !!!!! 

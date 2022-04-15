@@ -1,5 +1,15 @@
 <?php 
 
+include 'db1.php';
+
+$db1 = ConnexionBase1();
+
+$requete1 = $db1->query("SELECT * FROM inscrit");
+
+$tableau1 = $requete1->fetchAll(PDO::FETCH_OBJ);
+
+$requete1->closeCursor();
+
 session_start();
 
 if(isset($_POST['Deco'])){
@@ -21,11 +31,10 @@ $tableau = $requete->fetchAll(PDO::FETCH_OBJ);
 
 $requete->closeCursor();
 
-
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -58,14 +67,18 @@ $requete->closeCursor();
             )</strong></h1>
     </div>
 
-    <form method="post" class="offset-5 col-2">
+    <form method="post" class="offset-4 col-3">
 
-        <?php if (isset($_SESSION['Login'])){
-                echo '<a href="disc_new.php" class="btn btn-info btn-sm">Ajouter</a>';
-                echo '<input type="submit" name="Deco" class="btn btn-info btn-sm ml-1" value="Déconnexion"></input>';
-            } else {
-                echo '<a href="login_form.php" class="btn btn-info btn-sm">Connexion</a>';
-            }
+        <?php if (isset($_SESSION['Login'])){ ?>
+                <a href="disc_new.php" class="btn btn-info btn-sm">Ajouter</a>
+            <?php foreach($tableau1 as $inscrit): ?>
+                <a href="profil.php?id=<?= $inscrit->id ?>" class="btn btn-info btn-sm">Profil</a>
+            <?php endforeach; ?>
+                <input type="submit" name="Deco" class="btn btn-info btn-sm" value="Déconnexion"></input>
+            <?php } else { ?>
+                <a href="login_form.php" class="btn btn-info btn-sm">Connexion</a>
+                <a href="login_inscription.php" class="ml-2 btn btn-info btn-sm">S'inscrire</a>
+            <?php }
         ?>
 
     </form>

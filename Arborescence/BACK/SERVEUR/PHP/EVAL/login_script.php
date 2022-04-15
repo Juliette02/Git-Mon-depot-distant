@@ -2,7 +2,7 @@
 
 //Connection base de donnée !!!!!!!!!!
     include "db1.php";
-    $db1 = ConnexionBase();
+    $db1 = ConnexionBase1();
 //Fin !!!!!!!!
 
     session_unset();
