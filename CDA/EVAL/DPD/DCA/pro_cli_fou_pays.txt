@@ -1,0 +1,22 @@
+SELECT orders.ShipNAme, suppliers.CompanyNAme, orders.ShipCountry, suppliers.Country
+FROM orders
+JOIN orderdetails ON orders.OrderID = orderdetails.OrderID
+JOIN products ON orderdetails.ProductID = products.ProductID
+JOIN suppliers ON products.SupplierID = suppliers.SupplierID
+WHERE suppliers.Country = orders.ShipCountry;
+
+
+DELIMITER |
+
+	CREATE OR REPLACE PROCEDURE CliPays_FouPays(IN pays1 VARCHAR(15),
+												IN pays2 VARCHAR(15))
+		BEGIN 
+			SELECT orders.ShipNAme, suppliers.CompanyNAme, orders.ShipCountry, suppliers.Country
+			FROM orders
+			JOIN orderdetails ON orders.OrderID = orderdetails.OrderID
+			JOIN products ON orderdetails.ProductID = products.ProductID
+			JOIN suppliers ON products.SupplierID = suppliers.SupplierID
+			WHERE orders.ShipCountry = pays1 AND suppliers.Country = pays2 ;
+		END |
+	 
+DELIMITER ;

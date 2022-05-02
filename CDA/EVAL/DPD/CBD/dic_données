@@ -1,0 +1,25 @@
+id_bli			int auto_increment		identifiant de la blibliothécaire
+nm_bli			varchar(50)			nom de la blibliothécaire
+
+nm_abn			varchar(50)			nom de l'abonnée
+pn_abn			varchar(50)			prenom de l'abonnée
+ad_abn			varchar(100)			adresse de l'abonnée
+tel_abn		varchar(10)			téléphone de l'abonnée
+date_abnt		date				date d'inscription
+	
+num_liv		int auto increment		numéro du livre
+tit_liv		varchar(50)			titre du livre
+aut_liv		varchar(50)			auteur du livre
+edi_liv		varchar(50)			éditeur du livre
+date_edi_liv		date				date d'édition du livre
+thm_liv		varchar(25)			thème du livre
+	
+date_emp		date				date d'emprunt du livre
+date_ret_max		date				date de fin de l'emprunt
+date_rlc_emp		date				date de relance
+nb_rel_emp		int				nombre de relance
+date_ret_emp		date				date de retour 
+
+date_rbt_liv		date				date de rebut 
+
+
