@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Disc index{% endblock %}
+
+{% block body %}
+
+    <div class="row">
+        <h1 class="col-9 col-md-11">Disc index</h1>
+        <a class="nav-link col-3 col-md-1 display-flex align-self-end text-center" href="{{ path('app_login') }}"><img style="width: 40%;" src="/person-circle.svg"></a>
+    </div>
+
+    <div class="row">
+        {% for disc in discs %}
+
+            <div class="mb-2 ml-4 border-0 p-3 col-12 col-lg-6">
+                <div class="row hover-shadow offset-1">
+                    <img class="card-img-left img-thumbnail rounded-circle zoom" style="width: 35%; height: 35%;" alt="disc" src="/img/{{ disc.picture }}">
+                    <div class="card-body ml-3 col-3">
+
+                        <h5 class="card-title">{{ disc.id }}
+                        <strong>{{ disc.title }}</strong></h5>
+                        <h6 class="card-text">{{ disc.label }}<h6>
+                        
+                            <a class="btn btn-danger" href="{{ path('app_disc_show', {'id': disc.id}) }}" role="button">show</a>
+                            {# <a class="btn btn-danger" href="{{ path('app_disc_edit', {'id': disc.id}) }}" role="button">edit</a> #}
+                    </div>
+                </div>
+            </div>
+
+        {% endfor %}
+    </div>
+{% endblock %}
