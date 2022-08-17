@@ -2,12 +2,18 @@
 
 namespace App\Entity;
 
-use App\Repository\ArtistRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
+use App\Entity\Disc;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\ArtistRepository;
+use Doctrine\Common\Collections\Collection;
+use ApiPlatform\Core\Annotation\ApiResource;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: ArtistRepository::class)]
+#[ApiResource(
+    itemOperations: ["get" => ["normalizationContext" => ["groups"=> "read:disc"]]]
+)]
 class Artist
 {
     #[ORM\Id]
@@ -16,9 +22,11 @@ class Artist
     private $id;
 
     #[ORM\Column(type: 'string', length: 255)]
+    #[Groups(['read:disc'])]
     private $name;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    #[Groups(['read:disc'])]
     private $url;
 
     #[ORM\OneToMany(mappedBy: 'artist', targetEntity: Disc::class)]

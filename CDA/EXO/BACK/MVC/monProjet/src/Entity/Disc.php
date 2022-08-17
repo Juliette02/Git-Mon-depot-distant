@@ -2,16 +2,19 @@
 
 namespace App\Entity;
 
-use ApiPlatform\Core\Annotation\ApiResource;
 use App\Entity\Artist;
 use App\Entity\Comments;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\DiscRepository;
 use Doctrine\Common\Collections\Collection;
+use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: DiscRepository::class)]
-#[ApiResource()]
+#[ApiResource(
+    itemOperations: ["get" => ["normalizationContext" => ["groups"=> "read:disc"]]]
+)]
 class Disc
 {
     
@@ -21,18 +24,22 @@ class Disc
     private $id;
 
     #[ORM\Column(type: 'string', length: 255)]
+    #[Groups(['read:disc'])]
     private $title;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    #[Groups(['read:disc'])]    
     private $picture;
 
     #[ORM\Column(type: 'string', length: 255)]
+    #[Groups(['read:disc'])]
     private $label;
 
     #[ORM\ManyToOne(targetEntity: Artist::class, inversedBy: 'discs')]
+    #[Groups(['read:disc'])]
     private $artist;
 
-    #[ORM\OneToMany(mappedBy: 'disc', targetEntity: Comments::class)]
+    #[ORM\OneToMany(mappedBy: 'disc', targetEntity: Comments::class )]
     private $comments;
 
     public function __construct()

@@ -55,7 +55,7 @@ class Comments
     #[ORM\Column(type: 'boolean')]
     private $rgpd;
 
-    #[ORM\ManyToOne(targetEntity: Disc::class, inversedBy: 'comments')]
+    #[ORM\ManyToOne(targetEntity: Disc::class, inversedBy: 'comments', cascade: ['persist', 'remove'])]
     #[ORM\JoinColumn(nullable: false)]
     private $disc;
 

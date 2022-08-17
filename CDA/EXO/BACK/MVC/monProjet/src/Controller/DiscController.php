@@ -121,7 +121,7 @@ class DiscController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_disc_delete', methods: ['POST', 'GET'])]
+    #[Route('/{id}', name: 'app_disc_delete', methods: ['POST'])]
     public function delete(Request $request, Disc $disc, DiscRepository $discRepository): Response
     {
         if ($this->isCsrfTokenValid('delete'.$disc->getId(), $request->request->get('_token'))) {
