@@ -4,6 +4,7 @@ namespace App\DataFixtures;
 
 use App\Entity\Disc;
 use App\Entity\Artist;
+use App\Entity\Comments;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 
@@ -14,9 +15,10 @@ class DiscsFixtures extends Fixture
         // $product = new Product();
         // $manager->persist($product);
 
-        include 'Artist.php'; // On inclu le fichier record.php qui détient les données !! 
-        include 'Disc.php';
+        include 'ArtistFixtures.php'; // On inclu le fichier record.php qui détient les données !! 
+        include 'DiscFixtures.php';
         $artistRepo = $manager->getRepository(Artist::class);
+        $commentRepo = $manager->getRepository(Comments::class);
 
         foreach ($artists as $art){ // On crée des objets $Artist que l'on persiste !!
             $artistDB = new Artist();
@@ -44,5 +46,6 @@ class DiscsFixtures extends Fixture
             $manager->persist($discDB);
         }
 
-        $manager->flush();    }
-}
+        $manager->flush();    
+
+}}

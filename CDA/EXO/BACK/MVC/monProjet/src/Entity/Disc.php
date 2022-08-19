@@ -15,6 +15,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
 #[ApiResource(
     itemOperations: ["get" => ["normalizationContext" => ["groups"=> "read:disc"]]]
 )]
+#[ORM\Index(name:'Disc', columns:['title', 'label'], flags:['fulltext'])]
 class Disc
 {
     

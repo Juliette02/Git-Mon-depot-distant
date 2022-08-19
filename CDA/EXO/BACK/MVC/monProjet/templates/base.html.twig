@@ -10,45 +10,53 @@
 
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
+            <link rel="stylesheet" href="/css/style.css" >
         {% endblock %}
 
     </head>
     <body style="background-image: url('/fond.jpg'); background-attachment: fixed, scroll; background-repeat: no-repeat;">
 
-
-    <nav class="navbar navbar-expand-lg navbar-light m-1" style="background-color: #dc3545;">
-    
-        <a class="navbar-brand m-1 px-2 bg-secondary bg-gradient rounded-circle border border-dark text-center shadow" href="{{ path('app_disc_index') }}">VR</a>
-        <button class="navbar-toggler m-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse m-1" id="navbarColor01">
-        <ul class="navbar-nav me-auto">
-            <li class="nav-item">
-                <a class="nav-link active" href="{{ path('app_disc_index') }}">Disc
-                <span class="visually-hidden">(current)</span>
-                </a>
-            </li>
-
-        {# Seul un administrateur peut créer un nouveau disque #}
-            {% if is_granted('ROLE_ADMIN') %}
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ path('app_disc_new') }}">New Disc</a>
-                </li>
-            {% endif %}
-
-            <li class="nav-item">
-                <a class="nav-link" href="{{ path('app_artist_index') }}">Artist</a>
-            </li>
-        </ul>
-        <form class="d-flex">
-            <input class="form-control me-sm-2" type="text" placeholder="Search">
-            <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-        </form>
+    <div class="m-1 rounded" id="head">
+        <div class="row">
+            <a class="text-center col-9 col-md-11 mt-2 fs-1 text-decoration-none border-dark" id="Title" href="{{ path('app_disc_index') }}">Velvet Reccord</a>
+            <a class="nav-link col-3 col-md-1 display-flex align-self-end text-center" href="{{ path('app_login') }}"><img style="width: 30%;" src="/person-circle.svg"></a>
         </div>
 
-    </nav>
+        <nav class="navbar navbar-expand-lg navbar-light m-1 mt-0 rounded" id="navbar">
+
+            <a class="navbar-brand m-1 px-2 bg-secondary bg-gradient rounded-circle border border-dark text-center shadow" href="{{ path('app_disc_index') }}">VR</a>
+
+        
+            <button class="navbar-toggler m-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse m-1" id="navbarColor01">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{{ path('app_disc_index') }}">Disc
+                        <span class="visually-hidden">(current)</span>
+                        </a>
+                    </li>
+
+                {# Seul un administrateur peut créer un nouveau disque #}
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ path('app_disc_new') }}">New Disc</a>
+                        </li>
+                    {% endif %}
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('app_artist_index') }}">Artist</a>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <input class="form-control me-sm-2" type="text" placeholder="Search">
+                    <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+
+        </nav>
 
 
     </div>
@@ -60,7 +68,7 @@
     </div>
 
 
-    <footer class="text-center text-lg-start h-5% m-1" style="background-color: #dc3545;">
+    <footer class="text-center text-lg-start h-5% m-1 rounded" id="navbar">
         <div class="text-center p-3">
             © 2022 <strong>Velvet Reccord</strong>
         </div>

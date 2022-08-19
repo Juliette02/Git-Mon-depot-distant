@@ -36,7 +36,7 @@ class DiscController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             
 
-            $pictureFile = $form->get('picture')->getData();
+            $pictureFile = $form->get('picture_file')->getData();
 
             // Cette condition est nécessaire car le champ 'picture'  n'est pas obligatoire
             // donc le l'image doit être traité uniquement lorsqu'un fichier est téléchargé
