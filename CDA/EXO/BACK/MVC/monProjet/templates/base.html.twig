@@ -16,12 +16,14 @@
     </head>
     <body style="background-image: url('/fond.jpg'); background-attachment: fixed, scroll; background-repeat: no-repeat;">
 
-    <div class="m-1 rounded" id="head">
+     <div class="m-1 rounded" id="head">
         <div class="row">
-            <a class="text-center col-9 col-md-11 mt-2 fs-1 text-decoration-none border-dark" id="Title" href="{{ path('app_disc_index') }}">Velvet Reccord</a>
+            <a class="text-center col-9 col-md-11 mt-2 text-decoration-none fs-1 text-secondary" 
+            style="-webkit-text-stroke: 1px black; text-shadow: black 10px 2px 5px;"
+            href="{{ path('app_disc_index') }}">Velvet Reccord</a>
             <a class="nav-link col-3 col-md-1 display-flex align-self-end text-center" href="{{ path('app_login') }}"><img style="width: 30%;" src="/person-circle.svg"></a>
         </div>
-
+   
         <nav class="navbar navbar-expand-lg navbar-light m-1 mt-0 rounded" id="navbar">
 
             <a class="navbar-brand m-1 px-2 bg-secondary bg-gradient rounded-circle border border-dark text-center shadow" href="{{ path('app_disc_index') }}">VR</a>
