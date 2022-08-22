@@ -1,3 +1,23 @@
 h1 {
     color: rgb(194, 19, 48);
 }
+
+body {
+    background-image: url('/fond.jpg');
+    background-attachment: fixed, scroll;
+    background-repeat: no-repeat;
+}
+
+#title a {
+    -webkit-text-stroke: 1px black;
+    text-shadow: black 10px 2px 5px;
+}
+
+#head{
+    background-color: #dc3545;
+    margin-bottom: none;
+}
+
+#navbar{
+    background-color: #dc3545;
+}

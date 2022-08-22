@@ -27,9 +27,6 @@ const App = (props) => {
 
     return (
         <BrowserRouter>
-            <div>
-                App
-            </div>
             <Routes>
                 <Route path="/" element={<Liste data={data}/>} />
                 <Route path="add" element={<Formulaire onChange={handleChange} />} />

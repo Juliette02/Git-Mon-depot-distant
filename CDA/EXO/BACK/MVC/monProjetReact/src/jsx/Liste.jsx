@@ -11,7 +11,7 @@ const Liste = (props) => {
     return (
         <>
             <div>
-                Liste
+                
                 <Link className='btn btn-secondary' to="/add">Add</Link>
             </div><br></br>
             {
