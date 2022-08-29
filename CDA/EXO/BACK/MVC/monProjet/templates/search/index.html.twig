@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+
+{% if app.request.method == 'POST' %}
+    <div>
+        {% if discs | length == 0 %}
+            <h4>No result for your search.</h4>
+           {% else %}
+               <h3 class="mt-3">Your search results:</h3>
+               {% for disc in discs %}
+                   <div class="mt-3 p-3 bg-light border rounded">
+                       <a href="{{ path('app_disc_show', {'slug': disc.slug}) }}">
+                              <h6 class="text-dark"><i class="bi bi-arrow-down-right-square-fill text-primary"></i> {{ disc.title }}</h6>
+                       </a>
+                   </div>
+              {% endfor %}
+          {% endif %}
+     </div>
+{% endif %}
+
+{% endblock %}

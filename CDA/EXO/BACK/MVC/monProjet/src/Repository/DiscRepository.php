@@ -63,4 +63,13 @@ class DiscRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
+
+    public function findDiscByName(string $query)
+    {
+        $qb = $this->createQueryBuilder('p');
+        
+        return $qb
+            ->getQuery()
+            ->getResult();
+    }
 }
