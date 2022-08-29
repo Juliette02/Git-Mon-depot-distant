@@ -64,12 +64,19 @@ class DiscRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-    public function findDiscByName(string $query)
-    {
-        $qb = $this->createQueryBuilder('p');
-        
-        return $qb
-            ->getQuery()
-            ->getResult();
+    //REcherhce des discs en fonction du formulaire
+    /*
+    * @return void
+    */
+    public function Search($mots = null) {
+        $query = $this->createQueryBuilder('p');
+
+        if($mots != null){
+            $query->where('MATCH_AGAINST(p.title, p.label) AGAINST(:mots boolean)>0')
+                ->setParameter('mots', $mots);
+        }
+
+        return $query->getQuery()->getResult();
     }
+
 }

@@ -7,6 +7,7 @@ use App\Entity\Disc;
 use App\Form\Disc1Type;
 use App\Entity\Comments;
 use App\Form\CommentsType;
+use App\Form\SearchDiscType;
 use App\Service\FileUploader;
 use App\Repository\DiscRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -15,16 +16,54 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-#[Route('/disc')]
+#[Route('/')]
 class DiscController extends AbstractController
 {
-    #[Route('/', name: 'app_disc_index', methods: ['GET'])]
-    public function index(DiscRepository $discRepository): Response
+    #[Route('/', name: 'app_disc_index', methods: ['GET', 'POST'])]
+    public function index(DiscRepository $discRepository, Request $request): Response
     {
+        $discs = $discRepository->findAll();
+
+        $formSearch = $this->CreateForm(SearchDiscType::class);
+
+        $search = $formSearch->handleRequest($request);
+
+        if($formSearch->isSubmitted() && $formSearch->isValid()){
+            //On recherche les annonces correspondants aux mots clés
+            $discs = $discRepository->search(
+                $search->get('mots')->getData()
+            );
+        }
+
+
         return $this->render('disc/index.html.twig', [
-            'discs' => $discRepository->findAll(),
+            'discs' => $discs,
+            'form' => $formSearch->CreateView()
         ]);
     }
+
+    // #[Route('/Search', name: 'app_disc_search', methods: ['GET', 'POST'])]
+    // public function search(DiscRepository $discRepository, Request $request): Response
+    // {
+    //     $discs = $discRepository->findAll();
+
+    //     $formSearch = $this->CreateForm(SearchDiscType::class);
+
+    //     $search = $formSearch->handleRequest($request);
+
+    //     if($formSearch->isSubmitted() && $formSearch->isValid()){
+    //         //On recherche les annonces correspondants aux mots clés
+    //         $discs = $discRepository->search(
+    //             $search->get('mots')->getData()
+    //         );
+    //     }
+
+    //     return $this->render('disc/SearchBar.html.twig', [
+    //         'discs' => $discs,
+    //         'form' => $formSearch->CreateView()
+    //     ]);
+    // }
+    
 
     #[Route('/new', name: 'app_disc_new', methods: ['GET', 'POST'])]
     public function new(Request $request, DiscRepository $discRepository, FileUploader $fileUploader): Response
