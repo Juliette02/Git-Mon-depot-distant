@@ -16,7 +16,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-#[Route('/Disc')]
+#[Route('/disc')]
 class DiscController extends AbstractController
 {
     #[Route('/', name: 'app_disc_index', methods: ['GET', 'POST'])]
@@ -24,45 +24,10 @@ class DiscController extends AbstractController
     {
         $discs = $discRepository->findAll();
 
-        $formSearch = $this->CreateForm(SearchDiscType::class);
-
-        $search = $formSearch->handleRequest($request);
-
-        if($formSearch->isSubmitted() && $formSearch->isValid()){
-            //On recherche les annonces correspondants aux mots clés
-            $discs = $discRepository->search(
-                $search->get('mots')->getData()
-            );
-        }
-
-
         return $this->render('disc/index.html.twig', [
-            'discs' => $discs,
-            'form' => $formSearch->CreateView()
+            'discs' => $discs
         ]);
     }
-
-    // #[Route('/Search', name: 'app_disc_search', methods: ['GET', 'POST'])]
-    // public function search(DiscRepository $discRepository, Request $request): Response
-    // {
-    //     $discs = $discRepository->findAll();
-
-    //     $formSearch = $this->CreateForm(SearchDiscType::class);
-
-    //     $search = $formSearch->handleRequest($request);
-
-    //     if($formSearch->isSubmitted() && $formSearch->isValid()){
-    //         //On recherche les annonces correspondants aux mots clés
-    //         $discs = $discRepository->search(
-    //             $search->get('mots')->getData()
-    //         );
-    //     }
-
-    //     return $this->render('disc/SearchBar.html.twig', [
-    //         'discs' => $discs,
-    //         'form' => $formSearch->CreateView()
-    //     ]);
-    // }
     
 
     #[Route('/new', name: 'app_disc_new', methods: ['GET', 'POST'])]

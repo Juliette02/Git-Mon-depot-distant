@@ -42,10 +42,8 @@ class DiscRepository extends ServiceEntityRepository
 //    /**
 //     * @return Disc[] Returns an array of Disc objects
 //     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('d')
-//            ->andWhere('d.exampleField = :val')
+//    public function findByExampleField($value): arraygestion@rmasa.com
+
 //            ->setParameter('val', $value)
 //            ->orderBy('d.id', 'ASC')
 //            ->setMaxResults(10)
@@ -64,7 +62,7 @@ class DiscRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-    //REcherhce des discs en fonction du formulaire
+//REcherhce des discs en fonction du formulaire
     /*
     * @return void
     */
