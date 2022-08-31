@@ -16,7 +16,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-#[Route('/')]
+#[Route('/Disc')]
 class DiscController extends AbstractController
 {
     #[Route('/', name: 'app_disc_index', methods: ['GET', 'POST'])]
