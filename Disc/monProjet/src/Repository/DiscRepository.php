@@ -67,10 +67,10 @@ class DiscRepository extends ServiceEntityRepository
     * @return void
     */
     public function Search($mots = null) {
-        $query = $this->createQueryBuilder('p');
+        $query = $this->createQueryBuilder('d');
 
         if($mots != null){
-            $query->where('MATCH_AGAINST(p.title, p.label) AGAINST(:mots boolean)>0')
+            $query->where('MATCH_AGAINST(d.title, d.label) AGAINST(:mots boolean)>0')
                 ->setParameter('mots', $mots);
         }
 

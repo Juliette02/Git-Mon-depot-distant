@@ -24,8 +24,22 @@ class DiscController extends AbstractController
     {
         $discs = $discRepository->findAll();
 
+        $formSearch = $this->CreateForm(SearchDiscType::class);
+// 
+        $search = $formSearch->handleRequest($request);
+// dd($search);
+        if($formSearch->isSubmitted() && $formSearch->isValid()){
+           // On recherche les annonces correspondants aux mots clés
+            $discs = $discRepository->search(
+                $search->get('mots')->getData()
+            );
+            // dd($discs);
+        };
+
         return $this->render('disc/index.html.twig', [
-            'discs' => $discs
+            'discs' => $discs,
+            'formSearch' => $formSearch->CreateView()
+
         ]);
     }
     

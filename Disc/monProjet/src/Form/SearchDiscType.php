@@ -15,8 +15,8 @@ class SearchDiscType extends AbstractType
         $builder
             ->add('mots', SearchType::class, [
                 'label' => false,
-                'attr' => [
-                    'class' => 'form-controle',
+                'row_attr' => [
+                    'class' => 'form-controle mb-1',
                     'placeholder' => 'Search'
                 ],
                 'required' => false
