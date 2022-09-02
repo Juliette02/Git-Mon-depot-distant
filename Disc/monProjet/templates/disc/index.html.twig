@@ -10,21 +10,21 @@
         <h1 class="col-9 col-md-11">Disc index</h1>
     </div>
 
-        {{ form(formSearch) }}
+        {# {{ form(formSearch) }} #}
 
     <div class="row">
 
-    {# {% if discs | length == 0 %}
+    {% if discs | length == 0 %}
 
-        <h4>No result</h4>
+        <h4 class="text-center">Not found</h4>
 
-        {% else %} #}
+        {% else %}
 
             {% for disc in discs %}
 
                 <div class="mb-2 ml-4 border-0 p-3 col-12 col-lg-6">
                     <div class="row hover-shadow offset-1">
-                        <img class="card-img-left shadow bg-none rounded" style="width: 50%; height: 5%;" alt="disc" src="/img/{{ disc.picture }}">
+                        <img class="card-img-left bg-none rounded" style="width: 50%; height: 5%;" alt="disc" src="/img/{{ disc.picture }}">
                         <div class="card-body ml-3 col-3">
 
                             <h5 class="card-title">{{ disc.id }}
@@ -40,6 +40,6 @@
 
             {% endfor %}
 
-        {# {% endif %} #}
+        {% endif %}
     </div>
 {% endblock %}

@@ -56,12 +56,11 @@
                     </li>
                 </ul>
 
-                <form class="d-flex">
+                <form action="/Search" class="d-flex" method="post">
 
-                    {# {{ include('home/search.html.twig') }}              #}
                     {{ render(controller(
-                        'App\\Controller\\HomeController::search'
-                    ))}}
+                        'App\\Controller\\HomeController::searchBar'
+                    ))}} 
 
                 </form>
             </div>

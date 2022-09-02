@@ -17,15 +17,16 @@ class SearchDiscType extends AbstractType
                 'label' => false,
                 'row_attr' => [
                     'class' => 'form-controle mb-1',
-                    'placeholder' => 'Search'
+                    'placeholder' => 'Search',
+                    'title' => 'Press Enter to search...'
                 ],
                 'required' => false
             ])
-            ->add('Search', SubmitType::class, [
-                'attr' => [
-                    'class' => 'btn-secondary'
-                ]
-            ])
+            // ->add('Search', SubmitType::class, [
+            //     'attr' => [
+            //         'class' => 'btn-secondary'
+            //     ]
+            // ])
         ;
     }
 
